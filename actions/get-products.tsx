@@ -23,7 +23,7 @@ const getProducts= async (query: Query): Promise<Product[]> => {
         }
     });
 
-    const res = await fetch(URL);
+    const res = await fetch(url); // Related items'ta aynı kategori yerine tüm kategorilerin çıkmaması için url kullan URL değil.
 
     return res.json();
     
