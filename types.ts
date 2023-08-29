@@ -7,6 +7,8 @@ export interface Billboard {
 export interface Category {
     id: string;
     name: string;
+    parentCategoryId: string;
+    category: Category[];
     billboard: Billboard;
 }
 
