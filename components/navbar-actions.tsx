@@ -6,8 +6,15 @@ import Button from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import useCart from "@/hooks/use-cart";
 import { useRouter } from "next/navigation";
+import { UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+import { cn } from "@/lib/utils"
 
-const NavbarActions = () => {
+interface NavbarActionsProps {
+    userId: string | null;
+}
+
+const NavbarActions: React.FC<NavbarActionsProps> = ({ userId }) => {
 
     const [isMounted, setIsMounted] = useState(false);
 
@@ -25,15 +32,29 @@ const NavbarActions = () => {
 
     return ( 
         <div className="ml-auto flex items-center gap-x-4">
-            <Button onClick={()=> router.push("/cart")} className="flex items-center rounded-full bg-black px-4 py-2">
-                <ShoppingBag 
+            <Button onClick={() => router.push("/cart")} className="flex items-center rounded-full bg-black px-4 py-2">
+                <ShoppingBag
                     size={20}
-                    color="white"
-                />
+                    color="white" />
                 <span className="ml-2 text-sm font-medium text-white">
                     {cart.items.length}
                 </span>
             </Button>
+            {userId ? (
+                <UserButton afterSignOutUrl="/" />
+            ) : (
+                <>
+                    <Link
+                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
+                        href="/sign-in">Sign-in
+                    </Link>
+                    <Link
+                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
+                        href="/sign-up">Sign-up
+                    </Link>
+                </>
+            )}
+
         </div>
      );
 }

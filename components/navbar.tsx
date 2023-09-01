@@ -4,6 +4,7 @@ import Container from "@/components/ui/container";
 import NavbarActions from "@/components/navbar-actions";
 import MainNav from "@/components/main-nav";
 import getCategories from "@/actions/get-categories";
+import { auth } from "@clerk/nextjs";
 
 
 
@@ -11,6 +12,7 @@ import getCategories from "@/actions/get-categories";
 //export const revalidate = 0; // it makes never cached.
 
 const Navbar = async () => {
+    const {userId} = auth();
 
     const categories = await getCategories();
     return ( 
@@ -21,7 +23,7 @@ const Navbar = async () => {
                         <p className="font-bold text-xl">doorahome</p>
                     </Link>
                     <MainNav data={categories}/>
-                    <NavbarActions />
+                    <NavbarActions userId={userId}/>
                 </div>
             </Container>
         </div>
