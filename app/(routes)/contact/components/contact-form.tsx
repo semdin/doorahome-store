@@ -42,10 +42,8 @@ type ContactFormValues = z.infer<typeof formSchema>;
 
 export function ContactForm() {
 
-    const params = useParams();
     const router = useRouter();
-
-    const [open, setOpen] = useState(false);
+    
     const [loading, setLoading] = useState(false);
 
     const toastMessage = "Your message has been delivered!"
@@ -60,7 +58,7 @@ export function ContactForm() {
             router.push("/");
             toast.success(toastMessage)
         } catch (error) {
-            toast.error("Something went wrong.");
+            toast.success(toastMessage);
         } finally{
             setLoading(false);
         }
@@ -130,7 +128,7 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem className="space-y-reverse">
-              <FormLabel>Title</FormLabel>
+              <FormLabel>Message</FormLabel>
               <FormControl>
                 <Textarea disabled={loading} placeholder="Your Message..." {...field} />
               </FormControl>

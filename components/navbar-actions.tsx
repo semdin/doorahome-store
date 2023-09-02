@@ -40,8 +40,12 @@ const NavbarActions: React.FC<NavbarActionsProps> = ({ userId }) => {
                     {cart.items.length}
                 </span>
             </Button>
+            <Link
+                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
+                        href="/sign-up">Contact
+                    </Link>
             {userId ? (
-                <UserButton afterSignOutUrl="/" />
+                <></>
             ) : (
                 <>
                     <Link
@@ -54,6 +58,7 @@ const NavbarActions: React.FC<NavbarActionsProps> = ({ userId }) => {
                     </Link>
                 </>
             )}
+            <UserButton afterSignOutUrl="/" />
 
         </div>
      );
