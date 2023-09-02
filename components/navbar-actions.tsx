@@ -32,18 +32,14 @@ const NavbarActions: React.FC<NavbarActionsProps> = ({ userId }) => {
 
     return ( 
         <div className="ml-auto flex items-center gap-x-4">
-            <Button onClick={() => router.push("/cart")} className="flex items-center rounded-full bg-black px-4 py-2">
-                <ShoppingBag
-                    size={20}
-                    color="white" />
-                <span className="ml-2 text-sm font-medium text-white">
-                    {cart.items.length}
-                </span>
-            </Button>
             <Link
-                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
-                        href="/sign-up">Contact
-                    </Link>
+                className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black pr-2")}
+                href="/contact">Contact
+            </Link>
+            <Link
+                className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
+                href="/about">About
+            </Link>
             {userId ? (
                 <></>
             ) : (
@@ -58,7 +54,18 @@ const NavbarActions: React.FC<NavbarActionsProps> = ({ userId }) => {
                     </Link>
                 </>
             )}
+
+            <Button onClick={() => router.push("/cart")} className="flex items-center rounded-full bg-black px-4 py-2">
+                <ShoppingBag
+                    size={20}
+                    color="white" />
+                <span className="ml-2 text-sm font-medium text-white">
+                    {cart.items.length}
+                </span>
+            </Button>
+
             <UserButton afterSignOutUrl="/" />
+
 
         </div>
      );

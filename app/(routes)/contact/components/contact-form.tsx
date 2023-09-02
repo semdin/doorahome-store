@@ -34,7 +34,9 @@ const formSchema = z.object({
     message: "Title must be at least 2 characters.",
   }),
   message: z.string().min(2, {
-    message: "Email must be at least 2 characters.",
+    message: "Message must be at least 2 characters.",
+  }).max(200, {
+    message: "Message cannot exceed 200 characters.",
   }),
 })
 
