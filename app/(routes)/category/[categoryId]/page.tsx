@@ -9,6 +9,38 @@ import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import MobileFilters from "./components/mobile-filters";
 
+export async function generateMetadata({
+    params: { categoryId },
+  }: {
+    params: {
+        categoryId: string;
+    };
+  }) {
+    try {
+      const category = await getCategory(categoryId);
+      if (!category)
+        return {
+          title: "Not Found",
+          description: "The page you are looking for does not exist.",
+        };
+      return {
+        title: category.name,
+        robots: {
+          index: false,
+          follow: true,
+          nocache: true,
+        },
+      };
+    } catch (error) {
+      console.error(error);
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+      };
+    }
+  }
+
+
 export const revalidate= 0;
 
 interface CategoryPageProps {
@@ -30,10 +62,13 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         colorId: searchParams.colorId,
         sizeId: searchParams.sizeId
     });
+    
+    
 
     const sizes = await getSizes();
     const colors = await getColors();
     const category = await getCategory(params.categoryId);
+    CategoryPage.displayName = category.name;
     return ( 
         <div className="bg-white">
             <Container>
@@ -73,5 +108,12 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         </div>
      );
 }
+
+const getCategoryTitle: React.FC<CategoryPageProps> = async ({
+    params
+}) => {
+    const category = await getCategory(params.categoryId);
+    return category.name;
+  };
  
 export default CategoryPage;

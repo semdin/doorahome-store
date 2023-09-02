@@ -5,6 +5,33 @@ import ProductList from "@/components/product-list";
 import Container from "@/components/ui/container";
 import Info from "@/components/ui/info";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    productId: string;
+  };
+}) {
+  try {
+    const product = await getProduct(params.productId);
+    if (!product)
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+      };
+
+    return {
+      title: `${product.name} | ${product.size.value} | ${product.color.name} | $${product.price} - ${product.category.name}`,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      title: "Not Found",
+      description: "The page you are looking for does not exist.",
+    };
+  }
+}
+
 interface ProductPageProps {
     params: {
         productId: string;
