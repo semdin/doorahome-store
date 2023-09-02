@@ -12,7 +12,7 @@ import { ClerkProvider } from '@clerk/nextjs'
 const font = Urbanist({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Store',
+  title: 'doorahome',
   description: 'doorahome',
 }
 
