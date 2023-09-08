@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-    <html lang="en">
+    <html lang="en" style={{ zoom: 0.9 }}>
       <body className={font.className}>
         <ModalProvider />
         <ToastProvider />
