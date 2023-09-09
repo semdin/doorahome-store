@@ -40,3 +40,9 @@ export interface Color {
     name: string;
     value: string;
 }
+
+export interface About {
+    id: string;
+    label: string;
+    imageUrl: string;
+}

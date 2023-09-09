@@ -78,13 +78,6 @@ export function ContactForm() {
 
   return (
     <div className="space-y-10 pb-10">
-        <div className="flex items-center justify-between">
-        <Heading
-            title="Contact Us!"
-            description = "For general questions, partnership proposals, media inquiries, or other non-urgent matters, please use the contact form below to send us a message. We aim to respond to all inquiries within 24 hours."
-        />
-        </div>
-    <Separator />
     <div className="flex flex-col items-center">
   <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-md space-y-8">
