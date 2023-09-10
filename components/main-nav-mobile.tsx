@@ -142,7 +142,7 @@ const closeMenu = () => {
                         </svg>
                     </button>
                     <Link href="/" className="ml-4 flex items-center justify-center">
-                      <p className="font-bold text-xl">doorahome</p>
+                      <p className="font-bold text-xl">msa</p>
                      </Link>
                      <Separator className="my-3" />
                      <div className="ml-4 flex items-center justify-center">
