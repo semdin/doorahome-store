@@ -150,7 +150,7 @@ const closeMenu = () => {
                      </div>
                      <Separator className="my-3" />
                         {categoryTree.map((category) => (
-                        <Menubar className=" my-2">
+                        <Menubar key={category.id} className=" my-2">
                             <MenubarMenu key={category.id}>
                                 <MenubarTrigger className="w-full"><Link href={`/category/${category.id}`}>{category.name}</Link></MenubarTrigger>
                                 <MenubarContent>
