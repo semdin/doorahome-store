@@ -1,17 +1,17 @@
-import getAbout from "@/actions/get-about";
 import AboutPageContent from "./components/about-page";
+import getStoreSettings from "@/actions/get-store-settings";
 
 export const metadata = {
     title: "About Us"
   }
 
 const AboutPage = async () => {
-    //const about = await getAbout();
+    const storeSettings = await getStoreSettings();
 
     
     return ( 
         <div>
-            <AboutPageContent/>
+            <AboutPageContent data={storeSettings}/>
         </div>
      );
 }

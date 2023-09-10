@@ -10,7 +10,7 @@ import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 
-import  Button  from "@/components/ui/button"
+import { Button } from "@/components/ui/shadcn-button";
 import {
   Form,
   FormControl,
@@ -77,67 +77,69 @@ export function ContactForm() {
 
 
   return (
-    <div className="space-y-10 pb-10">
-    <div className="flex flex-col items-center">
-  <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-md space-y-8">
-      {/* İçeriği yatayda daraltmak için "max-w-md" eklenmiştir */}
-      <div className="w-full space-y-4">
-        {/* İçeriği yatayda daraltmak için "w-full" eklenmiştir */}
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem className="space-y-reverse">
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                    placeholder="name@example.com"
-                    type="email"
-                    autoCapitalize="none"
-                    autoComplete="email"
-                    autoCorrect="off"
-                    disabled={loading} 
-                    {...field} 
-                  />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem className="space-y-reverse">
-              <FormLabel>Title</FormLabel>
-              <FormControl>
-                <Input disabled={loading} placeholder="Title" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem className="space-y-reverse">
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea disabled={loading} placeholder="Your Message..." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <div className="space-y-10 pb-10 my-5">
+      <div className="flex flex-col items-center">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="sm: w-3/4 md:w-full md:max-w-lg space-y-8">
+            {/* İçeriği yatayda daraltmak için "max-w-md" eklenmiştir */}
+            <div className="w-full space-y-4">
+              {/* İçeriği yatayda daraltmak için "w-full" eklenmiştir */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem className="space-y-reverse">
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input
+                          placeholder="name@example.com"
+                          type="email"
+                          autoCapitalize="none"
+                          autoComplete="email"
+                          autoCorrect="off"
+                          disabled={loading} 
+                          {...field} 
+                        />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem className="space-y-reverse">
+                    <FormLabel>Title</FormLabel>
+                    <FormControl>
+                      <Input disabled={loading} placeholder="Title" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem className="space-y-reverse">
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea disabled={loading} placeholder="Your Message..." {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div className="flex items-center justify-center">
+              <Button size={"lg"} disabled={loading} className="" type="submit">
+              Submit
+            </Button>
+            </div>
+          </form>
+        </Form>
       </div>
-      <Button disabled={loading} className="ml-auto" type="submit">
-        Submit
-      </Button>
-    </form>
-  </Form>
-</div>
 
     </div>
   )
