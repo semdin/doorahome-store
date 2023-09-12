@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Category } from "@/types";
+import { Category, Store } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -28,6 +28,7 @@ import StaticCategory from "./static-category";
 interface MainNavMobileProps {
     data: Category[];
     userId: string | null;
+    store: Store;
 }
 
 interface CategoryWithChildren extends Category {
@@ -58,39 +59,43 @@ const buildCategoryTree = (categories: Category[]): CategoryWithChildren[] => {
   return topLevelCategories.map((category) => categoryMap[category.id]);
 };
 
-const MainNavMobile: React.FC<MainNavMobileProps> = ({ data, userId }) => {
-const [isMenuOpen, setIsMenuOpen] = useState(false);
-//const menuContentRef = useRef<HTMLDivElement | null>(null);
+const MainNavMobile: React.FC<MainNavMobileProps> = ({ data, userId, store }) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const menuContentRef = useRef<HTMLDivElement | null>(null);
 
 
-const toggleMenu = () => {
+    const handleMenuContentClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+        e.stopPropagation();
+      };
+
+  const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-};
+  };
 
-const closeMenu = () => {
+  const closeMenu = () => {
     setIsMenuOpen(false);
-};
+  };
 
-/*const handleMenuClick = (e: MouseEvent) => {
-  if (menuContentRef.current && !menuContentRef.current.contains(e.target as Node)) {
+  const handleMenuClick = (e: MouseEvent) => {
+    if (menuContentRef.current && !menuContentRef.current.contains(e.target as Node)) {
       closeMenu();
-  }
-};*/
+    }
+  };
 
-/*useEffect(() => {
+  useEffect(() => {
     if (isMenuOpen) {
-        // Menü açıldığında, sayfaya bir click event listener ekleniyor
-        document.addEventListener('click', handleMenuClick);
+      // Menü açıldığında, sayfaya bir click event listener ekleniyor
+      document.addEventListener('click', handleMenuClick);
     } else {
-        // Menü kapandığında, event listener'ı kaldırıyoruz
-        document.removeEventListener('click', handleMenuClick);
+      // Menü kapandığında, event listener'ı kaldırıyoruz
+      document.removeEventListener('click', handleMenuClick);
     }
 
     // Temizleme işlemi
     return () => {
-        document.removeEventListener('click', handleMenuClick);
+      document.removeEventListener('click', handleMenuClick);
     };
-}, [isMenuOpen]);*/
+  }, [isMenuOpen]);
 
   const categoryTree = buildCategoryTree(data);
 
@@ -120,7 +125,11 @@ const closeMenu = () => {
     <nav className="mx-6 flex items-center space-x-4 lg:space-x-6 relative z-10">
         {isMenuOpen && (
             <div className="fixed top-0 left-0 h-screen w-full bg-black bg-opacity-50 flex">
-                <div className="w-2/3 bg-white p-8 shadow-lg">
+          <div
+            ref={menuContentRef}
+            className="w-2/3 bg-white p-8 shadow-lg"
+            onClick={handleMenuContentClick} // Menü içeriğine tıklandığında menünün kapanmamasını sağlar
+          >
                     <button
                         className="text-white focus:outline-none absolute top-2 right-4 p-2"
                         onClick={closeMenu}
@@ -142,7 +151,7 @@ const closeMenu = () => {
                         </svg>
                     </button>
                     <Link href="/" className="ml-4 flex items-center justify-center">
-                      <p className="font-bold text-xl">msa</p>
+                      <p className="font-bold text-xl">{store.name}</p>
                      </Link>
                      <Separator className="my-3" />
                      <div className="ml-4 flex items-center justify-center">

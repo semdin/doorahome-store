@@ -16,17 +16,26 @@ const AboutPageContent: React.FC<AboutPageContentProps> = ({
     data,
 }) => {
     return (
+        <div className='font-poppins  bg-stone-100 dark:bg-gray-800'>
         <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
             <div className="flex flex-col lg:flex-row justify-between gap-8">
-                <div className="w-full lg:w-5/12 flex flex-col justify-center">
-                    <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">About Us</h1>
-                    <p className="font-normal text-base leading-6 text-gray-600 ">{data.aboutUsDescription}</p>
+                <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                    <div className="pl-4 mb-6 border-l-4 border-blue-500 ">
+                            <span className="text-sm text-gray-600 uppercase dark:text-gray-400">Who we are?</span>
+                            <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
+                                About Us
+                            </h1>
+                    </div>
+                    <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
+                        {data.aboutUsDescription}
+                    </p>
                 </div>
-                <div className="w-full lg:w-8/12 ">
+                
+                <div className="w-full lg:w-1/2 ">
                     <Image
                         width={1920}
                         height={1080}
-                        className="w-full h-full" 
+                        className="h-auto max-w-xl rounded-lg shadow-xl dark:shadow-gray-800 relative  transition-all duration-300 filter grayscale-0 hover:grayscale" 
                         src={`${data.aboutUsPhotoUrl}`}
                         alt="A group of People" 
                      />
@@ -34,13 +43,20 @@ const AboutPageContent: React.FC<AboutPageContentProps> = ({
             </div>
 
             <div className="flex lg:flex-row flex-col justify-between gap-8 pt-12">
-                <div className="w-full lg:w-5/12 flex flex-col justify-center">
-                    <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">Our Story</h1>
-                    <p className=" font-normal text-base leading-6 text-gray-600 ">{data.aboutUsDescription}</p>
+            <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                    <div className="pl-4 mb-6 border-l-4 border-blue-500 ">
+                            <span className="text-sm text-gray-600 uppercase dark:text-gray-400">Who we are?</span>
+                            <h1 className="mt-2 text-3xl font-black text-gray-700 md:text-5xl dark:text-gray-300">
+                                Our Story
+                            </h1>
+                    </div>
+                    <p className="mb-6 text-base leading-7 text-gray-500 dark:text-gray-400">
+                        {data.aboutUsOurStory}
+                    </p>
                 </div>
-                <div className="w-full lg:w-8/12 lg:pt-8">
+                <div className="w-full lg:w-1/2 lg:pt-8">
                     <div className="p-4 pb-6 flex justify-center flex-col items-center">
-                        <Button className='w-7/12'>
+                        <Button className='w-3/4'>
                             <Mail className="h-4 w-4 flex justify-center items-center" />  
                             <Link href={`/contact`} className=' w-full'>
                                 Contact Us!
@@ -50,6 +66,7 @@ const AboutPageContent: React.FC<AboutPageContentProps> = ({
                 </div>
             </div>
         </div>
+    </div>
     );
 };
 

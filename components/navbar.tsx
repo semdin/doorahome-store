@@ -36,7 +36,7 @@ const Navbar = async () => {
                     <NavbarActions/>
                 </div>
                 <div className="lg:hidden flex flex-grow justify-end">
-                    <MainNavMobile data={categories} userId={userId}/>
+                    <MainNavMobile data={categories} userId={userId} store={storeSettings}/>
                 </div>
                 </div>
             </Container>

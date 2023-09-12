@@ -29,7 +29,7 @@ const Carousel: React.FC<CarouselProps> = ({ data }) => {
             {data.map((item, index) => (
                 <SwiperSlide key={index}>
                 <div className="p-4 sm:p-6 lg:p-8 rounded-xl overflow-hidden">
-                    <div className="rounded-xl relative aspect-square md:aspect-[2.41/1] overflow-hidden">
+                    <div className="rounded-xl relative aspect-video sm:aspect-[2.41/1] overflow-hidden">
                         <div
                             className="absolute inset-0 bg-cover"
                             style={{
