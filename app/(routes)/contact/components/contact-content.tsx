@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ContactForm } from "./contact-form";
 import { Store } from "@/types";
+import Link from "next/link";
 
 interface ContactContentProps {
     data: Store;
@@ -32,7 +33,7 @@ export const ContactContent: React.FC<ContactContentProps> = ({
                         </div>
                         <p className="mb-2 text-xl font-bold dark:text-white">Email us:</p>
                         <p className="mb-3 text-gray-500 dark:text-gray-400">{data.contactUsCard1Descrition}</p>
-                        <a href="mailto:contact@bulletrank.com" className="font-semibold text-primary-600 dark:text-primary-500 hover:underline">{data.contactUsCard1Email}</a>
+                        <Link href={`${data.contactUsCard1Email}`} className="font-semibold text-primary-600 dark:text-primary-500 hover:underline">{data.contactUsCard1Email}</Link>
                     </div>
                     <div>
                         <div className="flex justify-center items-center mx-auto mb-4 w-10 h-10 bg-gray-100 rounded-lg dark:bg-gray-800 lg:h-16 lg:w-16">
