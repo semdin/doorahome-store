@@ -33,7 +33,7 @@ export const ContactContent: React.FC<ContactContentProps> = ({
                         </div>
                         <p className="mb-2 text-xl font-bold dark:text-white">Email us:</p>
                         <p className="mb-3 text-gray-500 dark:text-gray-400">{data.contactUsCard1Descrition}</p>
-                        <Link href={`${data.contactUsCard1Email}`} className="font-semibold text-primary-600 dark:text-primary-500 hover:underline">{data.contactUsCard1Email}</Link>
+                        <a href={`mailto:${data.contactUsCard1Email}`} className="font-semibold text-primary-600 dark:text-primary-500 hover:underline">{data.contactUsCard1Email}</a>
                     </div>
                     <div>
                         <div className="flex justify-center items-center mx-auto mb-4 w-10 h-10 bg-gray-100 rounded-lg dark:bg-gray-800 lg:h-16 lg:w-16">
@@ -43,7 +43,7 @@ export const ContactContent: React.FC<ContactContentProps> = ({
                         </div>
                         <p className="mb-2 text-xl font-bold dark:text-white">Call us:</p>
                         <p className="mb-3 text-gray-500 dark:text-gray-400">{data.contactUsCard2Descrition}</p>
-                        <span className="font-semibold text-primary-600 dark:text-primary-500">{data.contactUsCard2Phone}</span>
+                        <a href={`tel:${data.contactUsCard2Phone}`} className="font-semibold text-primary-600 dark:text-primary-500 hover:underline">{data.contactUsCard2Phone}</a>
                     </div>
                 </div>
             </div>
