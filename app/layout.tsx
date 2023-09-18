@@ -13,6 +13,7 @@ import getStoreSettings from '@/actions/get-store-settings'
 const font = Urbanist({ subsets: ['latin'] });
 
 const store = await getStoreSettings();
+export const fetchCache = 'force-no-store';
 
 export const metadata: Metadata = {
   
