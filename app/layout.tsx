@@ -8,15 +8,20 @@ import ModalProvider from '@/providers/modal-provider'
 import ToastProvider from '@/providers/toast-provider'
 
 import { ClerkProvider } from '@clerk/nextjs'
+import getStoreSettings from '@/actions/get-store-settings'
 
-const font = Urbanist({ subsets: ['latin'] })
+const font = Urbanist({ subsets: ['latin'] });
+
+const store = await getStoreSettings();
+export const fetchCache = 'force-no-store';
 
 export const metadata: Metadata = {
+  
   title:{
-    default: 'doorahome',
-    template: '%s | doorahome'
+    default: `${store.name}`,
+    template: `%s | ${store.name}`
   },
-  description: 'doorahome',
+  description: `${store.name}`,
 }
 
 export default function RootLayout({

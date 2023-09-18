@@ -7,14 +7,11 @@ import { useState, useEffect } from "react";
 import useCart from "@/hooks/use-cart";
 import { useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
-import Link from "next/link";
-import { cn } from "@/lib/utils"
 
 interface NavbarActionsProps {
-    userId: string | null;
 }
 
-const NavbarActions: React.FC<NavbarActionsProps> = ({ userId }) => {
+const NavbarActions: React.FC<NavbarActionsProps> = () => {
 
     const [isMounted, setIsMounted] = useState(false);
 
@@ -32,28 +29,6 @@ const NavbarActions: React.FC<NavbarActionsProps> = ({ userId }) => {
 
     return ( 
         <div className="ml-auto flex items-center gap-x-4">
-            <Link
-                className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black pr-2")}
-                href="/contact">Contact
-            </Link>
-            <Link
-                className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
-                href="/about">About
-            </Link>
-            {userId ? (
-                <></>
-            ) : (
-                <>
-                    <Link
-                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
-                        href="/sign-in">Sign-in
-                    </Link>
-                    <Link
-                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
-                        href="/sign-up">Sign-up
-                    </Link>
-                </>
-            )}
 
             <Button onClick={() => router.push("/cart")} className="flex items-center rounded-full bg-black px-4 py-2">
                 <ShoppingBag
