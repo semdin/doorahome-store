@@ -13,11 +13,11 @@ const StaticCategory: React.FC<StaticCategoryProps> = ({ userId }) => {
 
         <div className="mr-5 flex items-center gap-x-4">
             <Link
-                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
+                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-1 sm:px-3 py-1 text-base font-medium"
                 href="/contact">Contact
             </Link>
             <Link
-                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
+                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-1 sm:px-3 py-1 text-base font-medium"
                 href="/about">About
             </Link>
             {userId ? (
@@ -25,11 +25,11 @@ const StaticCategory: React.FC<StaticCategoryProps> = ({ userId }) => {
             ) : (
                 <>
                     <Link
-                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
+                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-1 sm:px-3 py-1 text-base font-medium "
                         href="/sign-in">Sign-in
                     </Link>
                     <Link
-                        className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
+                        className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-1 sm:px-3 py-1 text-base font-medium"
                         href="/sign-up">Sign-up
                     </Link>
                 </>
