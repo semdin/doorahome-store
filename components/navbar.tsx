@@ -21,7 +21,7 @@ const Navbar = async () => {
     const categories = await getCategories();
     const storeSettings = await getStoreSettings();
     return ( 
-            <div className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
+            <div className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-10 h-max max-w-full rounded-none  px-4 lg:px-8 lg:pb-4">
             <Container>
                 <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
                 <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
