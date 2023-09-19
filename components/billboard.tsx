@@ -21,7 +21,9 @@ const Billboard: React.FC<BillboardProps> = ({ data }) => {
                     className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs relative"
                     style={{ zIndex: 1, color: '#000000' }}
                 >
-                    {data?.label}
+                    <div className='backdrop-blur-sm shadow-2xl rounded-lg p-2'>
+                        {data?.label}
+                    </div>
                 </div>
             </div>
         </div>

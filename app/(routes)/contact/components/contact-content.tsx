@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import { ContactForm } from "./contact-form";
 import { Store } from "@/types";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface ContactContentProps {
     data: Store;
@@ -12,7 +14,10 @@ export const ContactContent: React.FC<ContactContentProps> = ({
     data,
 }) => {
     return (
-        <div>
+        <motion.div
+        initial={{ opacity: 0, translateY: 50}}
+        animate={{ opacity: 1, translateY: 0 }}
+        >
             <div className="bg-[url('https://res.cloudinary.com/dmi5bpudp/image/upload/v1694330774/laptop-human_ta6ddo.jpg')] bg-no-repeat bg-cover bg-center bg-gray-700 bg-blend-multiply">
                 <div className="px-4 lg:pt-24 pt-8 pb-72 lg:pb-80 mx-auto max-w-screen-sm text-center lg:px-6">
                     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">Contact Us</h2>
@@ -47,9 +52,8 @@ export const ContactContent: React.FC<ContactContentProps> = ({
                     </div>
                 </div>
             </div>
-        </div>
-    )
-
+        </motion.div>
+    );
 };
 
 export default ContactContent;

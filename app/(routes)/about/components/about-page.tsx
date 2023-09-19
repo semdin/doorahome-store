@@ -7,6 +7,7 @@ import { Mail } from "lucide-react"
 import {Button}  from "@/components/ui/shadcn-button"
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface AboutPageContentProps {
 data: Store;
@@ -16,7 +17,11 @@ const AboutPageContent: React.FC<AboutPageContentProps> = ({
     data,
 }) => {
     return (
-        <div className='font-poppins  bg-stone-100 dark:bg-gray-800'>
+        <motion.div
+        initial={{ opacity: 0, translateY: 50}}
+        animate={{ opacity: 1, translateY: 0 }}
+        className='font-poppins  bg-stone-100 dark:bg-gray-800'
+        >
         <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
             <div className="flex flex-col lg:flex-row justify-between gap-8">
                 <div className="w-full lg:w-1/2 flex flex-col justify-center">
@@ -66,7 +71,7 @@ const AboutPageContent: React.FC<AboutPageContentProps> = ({
                 </div>
             </div>
         </div>
-    </div>
+    </motion.div>
     );
 };
 
