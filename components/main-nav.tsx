@@ -82,9 +82,9 @@ const MainNav: React.FC<MainNavProps> = ({ data }) => {
   
     return (
     <nav 
-        className="mx-6 flex items-center space-x-4 lg:space-x-6"
+        className="mx-6 flex items-center space-x-4 lg:space-x-6 bg-white/80 backdrop-blur-md shadow-md rounded-lg"
     >
-      <Menubar>
+      <Menubar className="bg-white/80 backdrop-blur-md shadow-md rounded-lg">
         {categoryTree.map((category) => (
           <MenubarMenu key={category.id}>
             <MenubarTrigger><Link href={`/category/${category.id}`}>{category.name}</Link></MenubarTrigger>

@@ -9,14 +9,15 @@ interface StaticCategoryProps {
 
 const StaticCategory: React.FC<StaticCategoryProps> = ({ userId }) => {
 
-    return ( 
+    return (
+
         <div className="mr-5 flex items-center gap-x-4">
             <Link
-                className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black pr-2")}
+                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
                 href="/contact">Contact
             </Link>
             <Link
-                className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
+                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
                 href="/about">About
             </Link>
             {userId ? (
@@ -24,11 +25,11 @@ const StaticCategory: React.FC<StaticCategoryProps> = ({ userId }) => {
             ) : (
                 <>
                     <Link
-                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
+                className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
                         href="/sign-in">Sign-in
                     </Link>
                     <Link
-                        className={cn("text-sm font-medium transition-colors text-gray-600 hover:text-black")}
+                        className="transition-all hover:bg-[#497174] hover:bg-opacity-80 hover:text-white block rounded-md px-3 py-2 text-base font-medium "
                         href="/sign-up">Sign-up
                     </Link>
                 </>
