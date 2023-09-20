@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingCart } from "lucide-react";
+import { BadgeInfo, ShoppingCart } from "lucide-react";
 
 import { Product } from "@/types";
 import Currency from "@/components/ui/currency";
@@ -41,6 +41,19 @@ const Info: React.FC<InfoProps> = ({
                     <div>
                         {data?.color?.name}
                     </div>
+                </div>
+            </div>
+            <div
+                className=" my-3 block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <div
+                    className="border-b-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50 flex">
+                        Product Information  <BadgeInfo color="#79AC78" className="ml-2" />
+                    
+                </div>
+                <div className="p-6">
+                    <p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                        {data.description}
+                    </p>
                 </div>
             </div>
             <div className="mt-10 flex items-center gap-x-3">
