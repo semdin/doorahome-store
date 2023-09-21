@@ -20,7 +20,8 @@ const getProducts = async (query: Query): Promise<Product[]> => {
         }
     });
 
-    const res = await fetch(url);
+    const res = await fetch(url, {cache: "no-store"});
+
     const products = await res.json();
 
     if (query.categoryId) {
@@ -33,3 +34,5 @@ const getProducts = async (query: Query): Promise<Product[]> => {
 }
 
 export default getProducts;
+
+export const fetchCache = 'force-no-store';

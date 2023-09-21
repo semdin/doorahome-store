@@ -10,11 +10,6 @@ import StaticCategory from "@/components/static-category";
 import getStoreSettings from "@/actions/get-store-settings";
 import { Separator } from "./ui/separator";
 
-
-
-
-//export const revalidate = 0; // it makes never cached.
-
 const Navbar = async () => {
     const {userId} = auth();
 
