@@ -1,9 +1,8 @@
-import { Category, Product } from "@/types";
+import { Product } from "@/types";
 import qs from "query-string";
-import getCategory from "@/actions/get-category";
 
 interface Query {
-    categoryId: string;
+    categoryId?: string;
     colorId?: string;
     sizeId?: string;
     isFeatured?: boolean;
