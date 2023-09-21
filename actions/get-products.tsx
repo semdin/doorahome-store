@@ -1,8 +1,9 @@
-import { Product } from "@/types";
+import { Category, Product } from "@/types";
 import qs from "query-string";
+import getCategory from "@/actions/get-category";
 
 interface Query {
-    categoryId?: string;
+    categoryId: string;
     colorId?: string;
     sizeId?: string;
     isFeatured?: boolean;
@@ -22,15 +23,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
 
     const res = await fetch(url, {cache: "no-store"});
 
-    const products = await res.json();
-
-    if (query.categoryId) {
-        const categoryProducts = products.filter((product: { categoryId: string | undefined; }) => product.categoryId === query.categoryId);
-        const parentCategoryProducts = products.filter((product: { category: { parentCategoryId: string | undefined; }; }) => product.category.parentCategoryId === query.categoryId);
-        return [...categoryProducts, ...parentCategoryProducts];
-    }
-
-    return products;
+    return res.json();
 }
 
 export default getProducts;

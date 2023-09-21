@@ -63,9 +63,34 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         sizeId: searchParams.sizeId
     });
 
+
     const sizes = await getSizes();
     const colors = await getColors();
     const category = await getCategory(params.categoryId);
+
+    function getAllCategoryIds(category: Category) {
+      // İlk olarak bu kategorinin kendi ID'sini alalım
+      const categoryIds = [category.id];
+    
+      // Eğer bu kategorinin altında başka kategoriler varsa, onların ID'lerini de alalım
+      if (category.category && category.category.length > 0) {
+        category.category.forEach(subCategory => {
+          // Alt kategorilerin ID'lerini özyineleme ile toplayalım
+          const subCategoryIds = getAllCategoryIds(subCategory);
+          categoryIds.push(...subCategoryIds);
+        });
+      }
+    
+      return categoryIds;
+    }
+
+    const categoryIds = getAllCategoryIds(category);
+
+  const filteredProducts = products.filter((product) => {
+      // Ürünün categoryId'si categoryIds içindeki herhangi bir id ile eşleşiyorsa true döner.
+      return categoryIds.includes(product.category.id);
+    });
+
     CategoryPage.displayName = category.name;
     return ( 
         <div className="bg-white">
@@ -89,9 +114,9 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
                             />
                         </div>
                         <div className="mt-6 lg:col-span-4 lg:mt-0">
-                            {products.length === 0 && <NoResults/>}
+                            {filteredProducts.length === 0 && <NoResults/>}
                             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                                {products.map((item)=>(
+                                {filteredProducts.map((item)=>(
                                     <ProductCard 
                                         key={item.id}
                                         data={item}
