@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Category, Store } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 
 import {
@@ -122,16 +123,18 @@ const MainNavMobile: React.FC<MainNavMobileProps> = ({ data, userId, store }) =>
   };
 
   return (
-    <nav className="mx-6 flex items-center space-x-4 lg:space-x-6 relative z-10">
+    <nav className="text-black mx-6 flex items-center space-x-4 lg:space-x-6 relative z-10">
         {isMenuOpen && (
             <div className="fixed top-0 left-0 h-screen w-full bg-black bg-opacity-50 flex">
-          <div
+          <motion.div
+            initial={{ opacity: 0, translateX: -400}}
+            animate={{ opacity: 1, translateX: 0}}
             ref={menuContentRef}
-            className="w-2/3 bg-white p-8 shadow-lg"
+            className=" w-3/4 bg-white p-8 shadow-lg"
             onClick={handleMenuContentClick} // Menü içeriğine tıklandığında menünün kapanmamasını sağlar
           >
                     <button
-                        className="text-white focus:outline-none absolute top-2 right-4 p-2"
+                        className="text-[#EEEEEE] focus:outline-none absolute top-2 right-4 p-2"
                         onClick={closeMenu}
                     >
                         <svg
@@ -169,13 +172,13 @@ const MainNavMobile: React.FC<MainNavMobileProps> = ({ data, userId, store }) =>
                             </MenubarMenu>
                         </Menubar>
                         ))}
-                </div>
+                </motion.div>
             </div>
         )}
           <div className="lg:hidden">
             <div className="flex-grow"></div>
             <button
-              className="text-gray-800 focus:outline-none"
+              className="text-[#EEEEEE] focus:outline-none"
               onClick={toggleMenu}
             >
                 <svg

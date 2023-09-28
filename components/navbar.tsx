@@ -16,13 +16,16 @@ const Navbar = async () => {
     const categories = await getCategories();
     const storeSettings = await getStoreSettings();
     return ( 
-            <div className="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-10 h-max max-w-full rounded-none  px-4 lg:px-8 lg:pb-4">
+            <div className="bg-black opacity-90 backdrop-blur-md shadow-md sticky top-0 z-10 h-max max-w-full rounded-none px-4 pt-2 lg:px-8 lg:pb-4 text-white">
             <Container>
                 <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
                 <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
                     <p className="font-bold text-xl">{storeSettings.name}</p>
                 </Link>
-                    <div className="hidden lg:flex flex-grow justify-end"> {/* Sağa hizalama için */}
+                    <div className="hidden lg:grid place-items-center">
+                            <MainNav data={categories}/>
+                    </div>
+                    <div className="hidden lg:flex flex-grow justify-end ml-64"> {/* Sağa hizalama için */}
                         <StaticCategory userId={userId}/>
                     </div>
                     <div className="flex flex-grow justify-end"> {/* Sağa hizalama için */}
@@ -32,11 +35,8 @@ const Navbar = async () => {
                         <MainNavMobile data={categories} userId={userId} store={storeSettings}/>
                     </div>
                 </div>
-                <Separator className="hidden lg:block"/>
                     {/*bg-[#497174] p-1 opacity-70*/}
-                    <div className="hidden lg:grid place-items-center mt-4">
-                            <MainNav data={categories}/>
-                    </div>
+
             </Container>
             </div>
 
