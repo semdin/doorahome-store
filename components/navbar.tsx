@@ -8,7 +8,9 @@ import getCategories from "@/actions/get-categories";
 import { auth } from "@clerk/nextjs";
 import StaticCategory from "@/components/static-category";
 import getStoreSettings from "@/actions/get-store-settings";
-import { Separator } from "./ui/separator";
+import { Ubuntu } from "next/font/google";
+
+const font = Ubuntu({ subsets: ['latin'], weight: "400" });
 
 const Navbar = async () => {
     const {userId} = auth();
@@ -20,7 +22,9 @@ const Navbar = async () => {
             <Container>
                 <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
                 <Link href="/" className="ml-4 flex lg:ml-0 gap-x-2">
-                    <p className="font-bold text-xl">{storeSettings.name}</p>
+                    <div className={`${font.className} rounded-full bg-[#12486B]/75 p-2 hover:opacity-80 transition-all`}>
+                            <p className="font-bold text-xl">{storeSettings.name}</p>
+                    </div>
                 </Link>
                     <div className="hidden lg:grid place-items-center">
                             <MainNav data={categories}/>

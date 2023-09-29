@@ -8,7 +8,7 @@ import Filter from "./components/filter";
 import NoResults from "@/components/ui/no-results";
 import ProductCard from "@/components/ui/product-card";
 import MobileFilters from "./components/mobile-filters";
-import { Category, Product } from "@/types";
+import { Category } from "@/types";
 
 export async function generateMetadata({
     params: { categoryId },

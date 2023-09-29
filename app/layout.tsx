@@ -10,7 +10,7 @@ import ToastProvider from '@/providers/toast-provider'
 import { ClerkProvider } from '@clerk/nextjs'
 import getStoreSettings from '@/actions/get-store-settings'
 
-const font = Outfit({ subsets: ['latin'], weight: "400" });
+const font = Outfit({ subsets: ['latin'], weight: "300" });
 
 
 const store = await getStoreSettings();

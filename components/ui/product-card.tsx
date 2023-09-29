@@ -10,6 +10,7 @@ import { MouseEventHandler } from "react";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface ProductCard {
     data: Product;
@@ -39,10 +40,31 @@ const ProductCard: React.FC<ProductCard> = ({
         cart.addItem(data);
     }
 
+
+        
+    const item = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+          y: 0,
+          opacity: 1
+        }
+      };
+
     return (
-        <div onClick={handleClick} className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 border-none">
+        <div
+            onClick={handleClick} 
+            className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 border-none hover:shadow-lg hover:border-dashed hover:duration-300 transition-all duration-300 duration"
+         >
+
+            <motion.div
+                variants={item}
+            >
             {/* Images and Actions*/}
-            <div className="aspect-square rounded-xl bg-gray-100 relative">
+
+            <div
+                className="aspect-square rounded-xl bg-gray-100 relative"
+            
+            >
                 <Image
                     src={data?.images?.[0]?.url}
                     fill
@@ -80,6 +102,7 @@ const ProductCard: React.FC<ProductCard> = ({
 
             </div>
             </Link>
+            </motion.div>
         </div>
      );
 }
