@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Urbanist } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 
 import Footer from '@/components/footer'
 import Navbar from '@/components/navbar'
@@ -10,7 +10,8 @@ import ToastProvider from '@/providers/toast-provider'
 import { ClerkProvider } from '@clerk/nextjs'
 import getStoreSettings from '@/actions/get-store-settings'
 
-const font = Urbanist({ subsets: ['latin'] });
+const font = Outfit({ subsets: ['latin'], weight: "300" });
+
 
 const store = await getStoreSettings();
 

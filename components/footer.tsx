@@ -1,4 +1,5 @@
 import getStoreSettings from "@/actions/get-store-settings";
+import Container from "@/components/ui/container";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,26 +7,27 @@ const Footer = async () => {
     const storeSettings = await getStoreSettings();
     return ( 
 
-<footer className="bg-white dark:bg-gray-900">
-    <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-    <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+<footer className="text-white">
+    <div className="bg-[#222831]/95 mx-auto w-full max-w-full p-4 py-6 lg:py-16 mt-6 backdrop-blur-md shadow-sm">
+    <Container>
+      {/*<hr className="my-6 border-gray-500 sm:mx-auto" />*/}
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
           <Link href={`${storeSettings.siteLink}`} className="flex items-center">
                   <Image 
                   width={64}
                   height={64}
-                  src="https://res.cloudinary.com/dmi5bpudp/image/upload/v1693655552/z8kqct32y2ophue3gvnn.png" 
+                  src="https://res.cloudinary.com/dmi5bpudp/image/upload/v1695934162/favicon_rx4aqb.png" 
                   className="h-16 mr-3" 
-                  alt="doorahome Logo" 
+                  alt={`${storeSettings.name} logo`}
                   />
-                  <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">{storeSettings.name}</span>
+                  <span className="self-center text-2xl font-semibold whitespace-nowrap">{storeSettings.name}</span>
               </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
-                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <h2 className="mb-6 text-sm font-semibold text-white uppercase">Resources</h2>
+                  <ul className="text-gray-400 font-medium">
                       <li className="mb-4">
                           <Link href={`${storeSettings.fRes1Link}`} className="hover:underline"> {storeSettings.fRes1Title} </Link>
                       </li>
@@ -35,8 +37,8 @@ const Footer = async () => {
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
-                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <h2 className="mb-6 text-sm font-semibold text-white uppercase">Follow us</h2>
+                  <ul className="text-gray-400 font-medium">
                       <li className="mb-4">
                         <Link href={`${storeSettings.facebookUrl}`} className="hover:underline"> Facebook </Link>
                       </li>
@@ -46,8 +48,8 @@ const Footer = async () => {
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
-                  <ul className="text-gray-500 dark:text-gray-400 font-medium">
+                  <h2 className="mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
+                  <ul className="text-gray-400 font-medium">
                       <li className="mb-4">
                         <Link href={`${storeSettings.privacyPolicy}`} className="hover:underline"> Privacy Policy </Link>
                       </li>
@@ -58,12 +60,17 @@ const Footer = async () => {
               </div>
           </div>
       </div>
-      <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-      <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <Link href={`${storeSettings.siteLink}`} className="hover:underline"> {storeSettings.name} </Link>. All Rights Reserved.
+      {/*<hr className="my-6 border-gray-500 sm:mx-auto" />*/}
+      </Container>
+    </div>
+    {/* Copyright section */}
+    <div className="bg-[#222831] mx-auto max-w-full p-4 py-6 lg:py-8">
+    <Container>
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <span className="text-sm text-gray-400 sm:text-center">© 2023 <Link href={`${storeSettings.siteLink}`} className="hover:underline"> {storeSettings.name} </Link>. All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-              <Link href={`${storeSettings.facebookUrl}`} className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <Link href={`${storeSettings.facebookUrl}`} className="text-gray-400 hover:text-white">
                   <svg className="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
                         <path 
                             fillRule="evenodd" 
@@ -73,7 +80,7 @@ const Footer = async () => {
                     </svg>
                   <span className="sr-only">Facebook page</span>
               </Link>
-              <Link href={`${storeSettings.instagramUrl}`} className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <Link href={`${storeSettings.instagramUrl}`} className="text-gray-400 hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
                     <path 
                         fillRule="evenodd" 
@@ -83,7 +90,7 @@ const Footer = async () => {
                 </svg>
                   <span className="sr-only">Instagram page</span>
               </Link>
-              <Link href={`${storeSettings.twitterUrl}`} className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+              <Link href={`${storeSettings.twitterUrl}`} className="text-gray-400 hover:text-white">
               <svg width="16" height="16" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                     <path 
                         fillRule="evenodd" 
@@ -94,8 +101,9 @@ const Footer = async () => {
                   <span className="sr-only">X page</span>
               </Link>
           </div>
+          </div>
+          </Container>
       </div>
-    </div>
 </footer>
 
      );
