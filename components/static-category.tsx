@@ -11,13 +11,13 @@ const StaticCategory: React.FC<StaticCategoryProps> = ({ userId }) => {
 
     return (
 
-        <div className="flex items-center gap-x-4 mr-5 text-sm lg:text-base">
+        <div className="flex items-center gap-x-4 mr-0 text-sm lg:text-base">
             <Link
-                className="transition-all hover:bg-opacity-80 hover:text-gray-400 block px-1"
+                className="transition-all hover:bg-opacity-80 hover:text-gray-400 block "
                 href="/contact">Contact
             </Link>
             <Link
-                className="transition-all hover:bg-opacity-80 hover:text-gray-400 block px-1"
+                className="transition-all hover:bg-opacity-80 hover:text-gray-400 block "
                 href="/about">About
             </Link>
             {userId ? (
@@ -25,11 +25,11 @@ const StaticCategory: React.FC<StaticCategoryProps> = ({ userId }) => {
             ) : (
                 <>
                     <Link
-                className="transition-all hover:bg-opacity-80 hover:text-gray-400 block px-1"
+                className="transition-all hover:bg-opacity-80 hover:text-gray-400 block"
                         href="/sign-in">Sign-in
                     </Link>
                     <Link
-                        className="transition-all hover:bg-opacity-80 hover:text-gray-400 block px-1"
+                        className="transition-all hover:bg-opacity-80 hover:text-gray-400 block"
                         href="/sign-up">Sign-up
                     </Link>
                 </>

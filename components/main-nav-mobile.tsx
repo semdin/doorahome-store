@@ -130,7 +130,7 @@ const MainNavMobile: React.FC<MainNavMobileProps> = ({ data, userId, store }) =>
             initial={{ opacity: 0, translateX: -400}}
             animate={{ opacity: 1, translateX: 0}}
             ref={menuContentRef}
-            className=" w-3/4 bg-white p-8 shadow-lg"
+            className="w-4/5 bg-white p-8 shadow-lg"
             onClick={handleMenuContentClick} // Menü içeriğine tıklandığında menünün kapanmamasını sağlar
           >
                     <button
@@ -153,11 +153,11 @@ const MainNavMobile: React.FC<MainNavMobileProps> = ({ data, userId, store }) =>
                             />
                         </svg>
                     </button>
-                    <Link href="/" className="ml-4 flex items-center justify-center">
+                    <Link href="/" className="flex items-center justify-center">
                       <p className="font-bold text-xl">{store.name}</p>
                      </Link>
                      <Separator className="my-3" />
-                     <div className="ml-4 flex items-center justify-center">
+                     <div className="flex items-center justify-center">
                      <StaticCategory userId={userId}/>
                      </div>
                      <Separator className="my-3" />
