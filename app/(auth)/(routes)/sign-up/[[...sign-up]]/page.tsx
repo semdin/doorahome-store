@@ -8,7 +8,9 @@ export default function Page() {
     initial={{ opacity: 0}}
     animate={{ opacity: 1}}
     >
+      <div className="pt-8">
       <SignUp />
+      </div>
     </motion.div>
   );
 }

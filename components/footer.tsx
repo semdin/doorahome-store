@@ -8,10 +8,10 @@ const Footer = async () => {
     return ( 
 
 <footer className="text-white">
-    <div className="bg-[#222831]/95 mx-auto w-full max-w-full p-4 py-6 lg:py-16 mt-6 backdrop-blur-md shadow-sm">
+    <div className="bg-[#164863]/95 mx-auto w-full max-w-full p-4 py-6 lg:py-16 mt-6 backdrop-blur-md shadow-sm">
     <Container>
       {/*<hr className="my-6 border-gray-500 sm:mx-auto" />*/}
-        <div className="md:flex md:justify-between">
+        <div className="md:flex md:justify-between md:space-x-28">
           <div className="mb-6 md:mb-0">
           <Link href={`${storeSettings.siteLink}`} className="flex items-center">
                   <Image 
@@ -24,8 +24,17 @@ const Footer = async () => {
                   <span className="self-center text-2xl font-semibold whitespace-nowrap">{storeSettings.name}</span>
               </Link>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-              <div>
+
+            <div>
+                <Image 
+                    width={512}
+                    height={128}
+                    src={"https://res.cloudinary.com/dmi5bpudp/image/upload/v1699185712/stripe-badge-transparent_chd7hb.png"}
+                    alt="Stripe Payments"
+                />
+            </div>
+            
+{/*               <div>
                   <h2 className="mb-6 text-sm font-semibold text-white uppercase">Resources</h2>
                   <ul className="text-gray-400 font-medium">
                       <li className="mb-4">
@@ -46,7 +55,7 @@ const Footer = async () => {
                         <Link href={`${storeSettings.instagramUrl}`} className="hover:underline"> Instagram </Link>
                       </li>
                   </ul>
-              </div>
+              </div> */}
               <div>
                   <h2 className="mb-6 text-sm font-semibold text-white uppercase">Legal</h2>
                   <ul className="text-gray-400 font-medium">
@@ -58,13 +67,12 @@ const Footer = async () => {
                       </li>
                   </ul>
               </div>
-          </div>
       </div>
       {/*<hr className="my-6 border-gray-500 sm:mx-auto" />*/}
       </Container>
     </div>
     {/* Copyright section */}
-    <div className="bg-[#222831] mx-auto max-w-full p-4 py-6 lg:py-8">
+    <div className="bg-[#164863] mx-auto max-w-full p-4 py-6 lg:py-8">
     <Container>
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-400 sm:text-center">© 2023 <Link href={`${storeSettings.siteLink}`} className="hover:underline"> {storeSettings.name} </Link>. All Rights Reserved.

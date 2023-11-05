@@ -29,7 +29,7 @@ const Navbar = async () => {
                     <div className="hidden lg:grid place-items-center">
                             <MainNav data={categories}/>
                     </div>
-                    <div className="hidden lg:flex flex-grow justify-end ml-64"> {/* Sağa hizalama için */}
+                    <div className="hidden lg:flex flex-grow justify-end ml-32"> {/* Sağa hizalama için */}
                         <StaticCategory userId={userId}/>
                     </div>
                     <div className="flex flex-grow justify-end"> {/* Sağa hizalama için */}

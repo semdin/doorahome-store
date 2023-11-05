@@ -43,9 +43,16 @@ const ProductPage: React.FC<ProductPageProps> = async ({
 }) => {
     const product = await getProduct(params.productId);
 
+    const productCategory = product.category.id;
+
     const suggestedProducts = await getProducts({
-        categoryId: product?.category?.id
+        categoryId: product.category.id
     });
+
+    // Diziyi karıştır
+    suggestedProducts.sort(() => Math.random() - 0.5);
+    
+    const filteredProducts = suggestedProducts.filter(product => product.id !== params.productId && productCategory === product.category.id).slice(0, 10);
 
     return (
         <div className="bg-white">
@@ -58,7 +65,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                 </div>
               </div>
               <hr className="my-10" />
-              <ProductList title="Related Items" items={suggestedProducts} />
+              <ProductList title="Related Items" items={filteredProducts} />
             </div>
           </Container>
         </div>  
