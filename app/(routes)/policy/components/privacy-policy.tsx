@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 export function PrivacyPolicy() {
   return (
@@ -11,10 +11,11 @@ export function PrivacyPolicy() {
       <section className="space-y-3">
         <h2 className="text-lg font-semibold">1. Introduction</h2>
         <p>
-          Thank you for visiting Doorahome.com. Your privacy is important to us,
+          Thank you for visiting Ceraste.com. Your privacy is important to us,
           and we are committed to protecting the personal information that you
-          share with us. Should you have any queries regarding this policy or our
-          privacy practices, feel free to contact us at (contact information).
+          share with us. Should you have any queries regarding this policy or
+          our privacy practices, feel free to contact us at (contact
+          information).
         </p>
       </section>
 
@@ -22,7 +23,7 @@ export function PrivacyPolicy() {
       <section className="space-y-3">
         <h2 className="text-lg font-semibold">2. Information Collection</h2>
         <p>
-          While using Doorahome.com, we may collect various types of information,
+          While using Ceraste.com, we may collect various types of information,
           including:
         </p>
         <ul className="list-disc pl-5">
@@ -49,10 +50,10 @@ export function PrivacyPolicy() {
 
       {/* Section 3: Use of Collected Information */}
       <section className="space-y-3">
-        <h2 className="text-lg font-semibold">3. Use of Collected Information</h2>
-        <p>
-          We use the information collected for several purposes, such as:
-        </p>
+        <h2 className="text-lg font-semibold">
+          3. Use of Collected Information
+        </h2>
+        <p>We use the information collected for several purposes, such as:</p>
         <ul className="list-disc pl-5">
           <li>Providing and improving our services</li>
           <li>Communicating with you</li>
@@ -70,7 +71,7 @@ export function PrivacyPolicy() {
         </p>
         <ul className="list-disc pl-5">
           <li>Compliance with legal obligations</li>
-          <li>Protection of Doorahome.com rights and properties</li>
+          <li>Protection of Ceraste.com rights and properties</li>
           <li>Prevention of potential misconduct</li>
           <li>Ensuring the personal safety of users and the public</li>
         </ul>
@@ -81,8 +82,9 @@ export function PrivacyPolicy() {
         <h2 className="text-lg font-semibold">5. Data Security</h2>
         <p>
           We prioritize the security of your data but acknowledge that no
-          electronic transmission or storage method is entirely secure. We strive
-          to use commercially acceptable means to protect your personal data.
+          electronic transmission or storage method is entirely secure. We
+          strive to use commercially acceptable means to protect your personal
+          data.
         </p>
       </section>
 
@@ -90,8 +92,8 @@ export function PrivacyPolicy() {
       <section className="space-y-3">
         <h2 className="text-lg font-semibold">6. Cookies</h2>
         <p>
-          Doorahome.com uses cookies to improve your browsing experience. By
-          using our website, you consent to our use of cookies.
+          Ceraste.com uses cookies to improve your browsing experience. By using
+          our website, you consent to our use of cookies.
         </p>
       </section>
 
@@ -100,15 +102,18 @@ export function PrivacyPolicy() {
         <h2 className="text-lg font-semibold">7. Changes to This Policy</h2>
         <p>
           We may update this privacy policy from time to time. Any changes will
-          be posted on this page, and we encourage you to review our privacy policy
-          periodically.
+          be posted on this page, and we encourage you to review our privacy
+          policy periodically.
         </p>
       </section>
 
       {/* Section 8: Contact Us */}
       <section className="space-y-3">
         <h2 className="text-lg font-semibold">8. Contact Us</h2>
-        <p>If you have any questions regarding this privacy policy, please contact us at:</p>
+        <p>
+          If you have any questions regarding this privacy policy, please
+          contact us at:
+        </p>
         <ul className="list-disc pl-5">
           <li>Email: info@naturalwoods.co</li>
           <li>Phone: +17328125665</li>
