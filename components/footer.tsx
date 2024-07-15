@@ -17,7 +17,7 @@ const Footer = async () => {
                   <Image 
                   width={64}
                   height={64}
-                  src={storeSettings.fLogoUrl}
+                  src= {`${storeSettings.fLogoUrl}`}
                   className="h-16 mr-3" 
                   alt={`${storeSettings.name} logo`}
                   />
